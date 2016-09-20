@@ -1,0 +1,12 @@
+FROM node:5
+
+COPY wisdota-shared-code /shared-code
+WORKDIR /shared-code
+RUN npm install
+
+COPY wisdota-create-steam-accounts/src /source
+WORKDIR /source
+RUN npm install
+
+CMD ["node", "create-steam-accounts.js"]
+
